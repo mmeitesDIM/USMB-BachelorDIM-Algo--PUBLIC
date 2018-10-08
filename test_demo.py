@@ -28,7 +28,7 @@ def test_session1script_exists():
     try:
         load_S1_script()
         assert True
-    except  ImportError,e:
+    except  ImportError:
         print('Expected script not found, carrefuly check the assignement instructions ')
         assert False
 
@@ -94,9 +94,9 @@ def test_S1_max_values_with_string_values():
 	check_S1_max_value(['ab','c'])
 	
 def test_S1_max_value_empty_list():
-	try:
-		check_S1_max_value([])
-		assert False
+    try:
+        check_S1_max_value([])
+        assert False
     except ValueError:
         assert True
         check_S1_selective_average([])
