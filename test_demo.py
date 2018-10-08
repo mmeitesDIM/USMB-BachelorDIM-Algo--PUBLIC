@@ -80,7 +80,7 @@ def check_S1_max_value(testList):
 # @param testList a list of values onto max_value is applied
    import numpy as np
    #another way to search the maximum value in an array
-   elements_float_array=np.array([i for i in testList ], dtype=float)
+   elements_float_array=np.array([i for i in testList if i >= 0 ], dtype=float)
    reference_max_value = np.amax(elements_float_array)
    assert load_S1_script().max_value(testList) = reference_max_value
    
@@ -90,6 +90,9 @@ def test_S1_max_values():
 def test_S1_max_values_with_negative_values():
 	check_S1_max_value([0,-7])
     
+def test_S1_max_values_with_string_values():
+	check_S1_max_value(['ab','c'])
+	
 def test_S1_max_value_empty_list():
 	try:
 		check_S1_max_value([])
