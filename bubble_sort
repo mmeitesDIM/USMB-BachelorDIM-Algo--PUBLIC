@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+
+"""
+ brief : sort bubble
+  compares 2 values and swap their postion
+  if the second is superior to the first one.
+ Args :
+    # @input_tab : tab of values to sort
+    # @return a sorted tab
+ raise :
+     ValueError if input tab is empty
+"""
+def sort_bubble( input_tab):
+    #test if list is not empty
+    if len(input_tab)==0 :
+        raise ValueError('Expected values in tab')
+ 
+
+    #initialisation 
+    array_sorted = False
+    len_tab = len(input_tab)
+    index=0
+
+    while(array_sorted == False):
+        array_sorted = True
+        for index in range (len_tab-1):
+            if input_tab[index] > input_tab[index+1]:
+                tmp_value = input_tab[index]
+                input_tab[index] = input_tab[index+1]
+                input_tab[index+1] = tmp_value
+                array_sorted = False
+                          
+        len_tab -=1
+    
+        
+    return input_tab
+
+# Test script
+test_tab = [10,15,7,1,3,3,9]#↨ create a vector sample
+print('Values of test_tab are : {}'.format(test_tab))
+result_tab = sort_bubble(test_tab)
+message='After bubble sort : {}'.format(result_tab)
+print(message)
+
+#test 2
+test_tab2 = []
+result_tab = sort_bubble(test_tab2)
+
