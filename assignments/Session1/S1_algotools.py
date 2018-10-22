@@ -192,6 +192,48 @@ print('inputMat='+str(inputMat))
 roi=roi_bbox(inputMat)
 print('roi ='+str(roi))
 
+"""
+Exercice de tri sélectif
+"""
+"""
+ brief : selective sort
+  compares 2 values and swap their postion
+  if the second is inferior to the first one.
+ Args :
+    # @input_tab : tab of values to sort
+    # @return a sorted tab
+ raise :
+     ValueError if input tab is empty
+"""
+def selective_sort( input_tab):
+    
+    if len(input_tab)==0 :
+        raise ValueError('Expected values in tab')
+ 
+    # initialisation
+    len_tab = len(input_tab)
+    min_position = 0
+    
+    for index_i in range (len_tab):
+        min_position = index_i
+        
+        for index_j in range(index_i+1 ,(len_tab)):
+            # search the smallest value 
+            if input_tab[index_j]<input_tab[min_position]:
+                 min_position = index_j
+                 
+        # swap
+        tmp_value = input_tab[min_position]
+        input_tab[min_position] = input_tab[index_i]
+        input_tab[index_i] = tmp_value
+
+    return input_tab
+    
+# Test script
+test_tab = [10,15,7,1,3,3,9]#↨ create a vector sample
+print('Values of test_tab are : {}'.format(test_tab))
+result_tab = selective_sort(test_tab)
+print('result_tab = {}'.format(result_tab))
 
 """
 Exercice de tri Bubble
