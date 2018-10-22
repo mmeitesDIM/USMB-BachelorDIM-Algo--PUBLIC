@@ -127,6 +127,71 @@ print(message)
 test_tab2=[]
 tab_result2 = reverse_table(test_tab2)
 
+"""
+Created on Mon Oct 22 11:20:29 2018
+
+@author: meitesm
+"""
+
+"""
+Bounding box
+"""
+
+def roi_bbox(inputMat):
+    """TODO : add commentss (what, iputs, outputs) """
+    roi = None
+    
+    # basic input data type to check
+    # check if it's a matrice
+    if not(isinstance(inputMat, np.ndarray)):
+        raise ValueError('Expected a numpy array as input')
+    # check if values type is boolean
+    if not(inputMat.dtype== np.bool):
+        raise ValueError('Expected input of type numpy.binary as input')
+        
+    """task : find out : cmin, cmax, lmin, lmax
+    """
+    lmin=inputMat.shape[0]
+    lmax=0
+    cmin=inputMat.shape[1]
+    cmax=0
+    
+    for l in range(inputMat.shape[0]):
+    #.shape = donne la taille de la matrice
+    # tuple, on a la  list de la taille de ttes ses dim
+        for c in range(inputMat.shape[1]):
+            
+            if inputMat[l,c]==True:
+                if l<lmin:
+                    lmin=l
+                if l>lmax:
+                    lmax=l
+                if c<cmin:
+                    cmin=c
+                if c>cmax:
+                    cmax=c
+    
+    roi=[[lmin, cmin],
+         [lmin, cmax],
+         [lmax, cmin],
+         [lmax, cmax]]              
+                    
+    return np.array(roi)    # np.array transforme une liste de point en matrice
+    
+import numpy as np
+# creatio d'une matrice de binaire 5 lignes et 5 colonnes de type bool
+inputMat = np.zeros((5,6), dtype =np.bool)
+
+#fill some points within it
+inputMat[2,3]=True
+inputMat[2,4]=True
+inputMat[3,3]=True
+inputMat[3,4]=True
+
+print('inputMat='+str(inputMat))
+roi=roi_bbox(inputMat)
+print('roi ='+str(roi))
+
 
 """
 Exercice de tri Bubble
