@@ -81,6 +81,7 @@ print('index in tab =')
 print(indexV)
 
 
+
 #message='The max value and his index of  samples of {mylist} is {maxValue),(indexValue)'.format(mylist =test_tab , maxValue =maxV ,indexValue=indexV)
 #print(message)
 # Test script
