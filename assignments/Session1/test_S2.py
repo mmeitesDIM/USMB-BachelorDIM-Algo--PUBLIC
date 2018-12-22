@@ -86,8 +86,8 @@ def check_S1_max_value(testList):
    import numpy as np
    #another way to search the maximum value in an array
    elements_float_array=np.array([i for i in testList if i >= 0 ], dtype=float)
-   reference_max_value = np.amax(elements_float_array)
-   assert load_S1_script().max_value(testList) == reference_max_value
+   maxV , indexV = load_S1_script().max_value(testList) 
+   assert maxV == reference_max_value  
    
 def test_S1_max_values_basic():
 	check_S1_max_value([1,2,3,4,-7])
