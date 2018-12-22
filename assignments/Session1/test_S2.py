@@ -21,8 +21,7 @@ def load_S1_script():
         @throws an ImportError exception if the script file does not exist
         @return the script as a loaded module
     """
-    #S1_script_filename='assignments/Session1/S1_algotools.py'
-    S1_script_filename='S1_algotools.py'
+    S1_script_filename='assignments/Session1/S1_algotools.py'
     import imp
     s1_algotools=imp.load_source('session_1_script', S1_script_filename)
     return  s1_algotools
@@ -78,3 +77,32 @@ def test_S1_selective_average_with_empty_list():
         assert False
     except ValueError:
         assert True
+
+###
+#Exercice2	
+###
+def check_S1_max_value(testList):	
+# @param testList a list of values onto max_value is applied
+   import numpy as np
+   #another way to search the maximum value in an array
+   elements_float_array=np.array([i for i in testList if i >= 0 ], dtype=float)
+   reference_max_value = np.amax(elements_float_array)
+   assert load_S1_script().max_value(testList) == reference_max_value
+   
+def test_S1_max_values_basic():
+	check_S1_max_value([1,2,3,4,-7])
+	
+def test_S1_max_values_with_negative_values():
+	check_S1_max_value([0,-7])
+    
+def test_S1_max_values_with_string_values():
+	check_S1_max_value(['ab','c'])
+	
+def test_S1_max_value_empty_list():
+    try:
+        check_S1_max_value([])
+        assert False
+    except ValueError:
+        assert True
+        check_S1_selective_average([])
+        assert False
