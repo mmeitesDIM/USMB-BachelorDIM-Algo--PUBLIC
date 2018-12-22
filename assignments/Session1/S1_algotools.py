@@ -91,7 +91,7 @@ maxV, indexV =max_value(test_tab2)
 """
 Exercice 3 
 """
-from math import *
+import numpy as np
 """
  brief : reverse order of values in an array
  Args :
@@ -101,19 +101,23 @@ from math import *
         ValueError if input tab is empty
 """
 def reverse_table(tab):
+ #basic input data type check
+    if not (isinstance(tab, list)):
+        raise ValueError('Expected a list as Input')
+        
     #test if tab is not empty
     if len(tab)==0 :
          raise ValueError('Expected values in tab')
         
     # initialisation
-    max_tab =(len(tab)-1)/2
-    nb_turn = int(ceil(max_tab))
-    len_tab = len(tab)
+    max_tab = len(tab)
+    nb_turn = int(np.floor(max_tab/2))
+    len_tab = -1
                
     for index in range (nb_turn):
-        temp_value = tab[index]
-        tab[index] = tab[len_tab-1-index]
-        tab[len_tab-1-index] = temp_value
+        temp_value = tab[len_tab-index]
+        tab[len_tab-index] = tab[index]
+        tab[index] = temp_value
 
     return tab
 
