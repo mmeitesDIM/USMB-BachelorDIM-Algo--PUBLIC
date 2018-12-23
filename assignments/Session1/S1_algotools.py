@@ -155,7 +155,15 @@ Bounding box
 """
 
 def roi_bbox(inputMat):
-    """TODO : add commentss (what, iputs, outputs) """
+    """
+    brief : find coordonnates (top left, top right, bottom left, bottom right) of an image
+    Args :
+        @inputMat : 2D matrix with binary values
+        @return :  the bounding box coordinates of the object. 
+    raise :
+        ValueError if input data type is not binary
+        ValueError if input data type is not a numpy array
+    """
     roi = None
     
     # basic input data type to check
@@ -196,7 +204,7 @@ def roi_bbox(inputMat):
     return np.array(roi)    # np.array transforme une liste de point en matrice
     
 import numpy as np
-# creatio d'une matrice de binaire 5 lignes et 5 colonnes de type bool
+# creatio d'une matrice de binaire 5 lignes et 6 colonnes de type bool
 inputMat = np.zeros((5,6), dtype =np.bool)
 
 #fill some points within it
