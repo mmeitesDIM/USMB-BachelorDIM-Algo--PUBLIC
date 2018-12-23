@@ -16,6 +16,10 @@ def average_above_zero(tab):
     """
     if not(isinstance(tab, list)):
         raise ValueError('Expected a list as input')
+        
+    for index in range (len(tab)):
+        if (isinstance(tab[index],str)):
+             raise ValueError('String not allowed as Input')  
     
     average = -99
     
@@ -56,6 +60,10 @@ def max_value(tab):
     #test if tab is not empty
     if len(tab)==0 :
          raise ValueError('Expected values in tab')
+            
+    for index in range (len(tab)):
+        if (isinstance(tab[index],str)):
+             raise ValueError('String not allowed as Input') 
 
     #initialisation 
     indexValue = 0
@@ -104,7 +112,11 @@ def reverse_table(tab):
  #basic input data type check
     if not (isinstance(tab, list)):
         raise ValueError('Expected a list as Input')
-        
+    
+    for index in range (len(tab)):
+        if (isinstance(tab[index],str)):
+             raise ValueError('String not allowed as Input') 
+                
     #test if tab is not empty
     if len(tab)==0 :
          raise ValueError('Expected values in tab')
