@@ -105,3 +105,23 @@ def test_S1_max_value_empty_list():
     except ValueError:
         assert True
 
+	
+
+###
+#Exercice3	
+###
+def check_S1_reverse_table(testList):	
+    assert load_S1_script().reverse_table(testList)   ==[-5, 3, 2, 1]
+    
+def test_S1_reverse_table_basic():
+	check_S1_reverse_table([1,2,3,-7])
+    
+def test_S1_reverse_table_with_string_values():
+	check_S1_max_value(['ab','c'])
+    
+def test_S1_reverse_table_empty_list():
+    try:
+        check_S1_reverse_table([])
+        assert False
+    except ValueError:
+        assert True
