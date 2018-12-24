@@ -130,7 +130,8 @@ def test_S1_reverse_table_empty_list():
 ###
 #Exercice4	
 ###
-def check_S1_bounding_box(inputMat):	
+def check_S1_bounding_box(inputMat):
+    import numpy as np	
     np.testing.assert_array_equal(load_S1_script().roi_bbox(inputMat),[[2,3],[2,4],[3,3],[3,4]])
     
 def test_S1_bounding_box_basic():
