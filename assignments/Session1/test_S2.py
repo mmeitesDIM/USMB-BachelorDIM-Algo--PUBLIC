@@ -125,3 +125,26 @@ def test_S1_reverse_table_empty_list():
         assert False
     except ValueError:
         assert True
+	
+        
+###
+#Exercice4	
+###
+def check_S1_bounding_box(inputMat):	
+    np.testing.assert_array_equal(load_S1_script().roi_bbox(inputMat),[[2,3],[2,4],[3,3],[3,4]])
+    
+def test_S1_bounding_box_basic():
+    inputMat=[[False,False,False,False,False,False]
+ [False,False,False,False,False,False]
+ [False,False,False,True,True,False]
+ [False,False,False,True,True,False]
+ [False,False,False,False,False,False]]
+    check_S1_bounding_box(inputMat)
+
+def test_S1_bounding_box_with_integer_values():
+    inputMat=[[0,1,2,3,4,5],[5,4,3,2,1,0]]
+    check_S1_bounding_box(inputMat)
+    
+def test_S1_bounding_box_without_matrix_argument():
+    inputMat=[1]
+    check_S1_bounding_box(inputMat)
